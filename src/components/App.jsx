@@ -5,7 +5,7 @@ import Notiflix from 'notiflix';
 import { ContactForm } from './ContactForm/ContactForm';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
-import s from "./app.module.css";
+import s from './app.module.css';
 
 export class App extends Component {
   state = {
@@ -23,7 +23,7 @@ export class App extends Component {
       ? Notiflix.Notify.info(`${name} is already in contacts`)
       : this.setState(prevState => ({
           contacts: [
-            { id: nanoid(), name: name.trim(), number },
+            { id: nanoid(), name: name.trim(), number},
             ...prevState.contacts,
           ],
         }));
@@ -48,7 +48,7 @@ export class App extends Component {
     );
 
     return (
-      <Fragment >
+      <Fragment>
         <h1 className={s.container}>Phonebook</h1>
         <ContactForm onSubmit={this.handleAddContact} />
 
@@ -62,4 +62,3 @@ export class App extends Component {
     );
   }
 }
-
