@@ -1,12 +1,14 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
+// import Notiflix from 'notiflix';
 import s from './contactForm.module.css';
 
 export class ContactForm extends Component {
   static propTypes = {
     onSubmit: PropTypes.func.isRequired,
   };
+
   state = {
     name: '',
     number: '',
@@ -23,11 +25,32 @@ export class ContactForm extends Component {
   handleOnSubmit = e => {
     e.preventDefault();
     this.props.onSubmit(this.state);
-    this.resetForm();
+
+    // const { addContact } = this.props;
+    // const { name, number } = this.state;
+    // this.setState(() => ({ contacts: addContact }));
+    
+    // Notiflix.Notify.init({
+    //   position: 'center-top', // });
+
+    // if (addContact.find(contact => contact.name === name)) {
+    //   Notiflix.Notify.info(`${name} is already in contacts`);
+    //   this.setState({ name: '' });
+    // } else {
+    //   this.setState(prevState => ({
+    //     contacts: [
+    //       { id: nanoid(), name: name.trim(), number },
+    //       ...prevState.contacts,
+    //     ],
+    //   }));
+    // this.resetForm()
+    // }
+
+    this.resetForm()
   };
 
   resetForm = () => {
-    this.setState({ name: ' ', number: ' ' });
+    this.setState({ name: '', number: '' });
   };
 
   render() {
